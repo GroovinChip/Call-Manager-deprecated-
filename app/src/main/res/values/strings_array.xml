@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="call_actions_list_default">
+        <item>Call</item>
+        <item>Send SMS</item>
+        <item>Edit Call</item>
+        <item>Set Reminder</item>
+        <item>Delete</item>
+    </string-array>
+    <string-array name="call_actions_list_whatsapp">
+        <item>Call</item>
+        <item>Send WhatsApp Message</item>
+        <item>Edit Call</item>
+        <item>Set Reminder</item>
+        <item>Delete</item>
+    </string-array>
+    <string-array name="call_actions_list_telegram">
+        <item>Call</item>
+        <item>Send Telegram Message</item>
+        <item>Edit Call</item>
+        <item>Set Reminder</item>
+        <item>Delete</item>
+    </string-array>
+    <string-array name="custom_chats">
+        <item>SMS (Default)</item>
+        <item>WhatsApp</item>
+        <item>Telegram</item>
+    </string-array>
+</resources>

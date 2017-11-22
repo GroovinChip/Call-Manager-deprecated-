@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context="groovinchip.com.callmanager.AddNewCall">
+
+    <EditText
+        android:id="@+id/ANC_name_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="@string/ANC_name_placeholder"
+        android:inputType="textCapSentences"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:lines="1"
+        android:maxLength="75"/>
+
+    <EditText
+        android:id="@+id/ANC_num_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ANC_name_field"
+        android:layout_below="@+id/ANC_name_field"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/ANC_number_placeholder"
+        android:inputType="phone"
+        android:lines="1"
+        android:maxLength="17"/>
+
+    <EditText
+        android:id="@+id/ANC_desc_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ANC_num_field"
+        android:layout_below="@+id/ANC_num_field"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/ANC_description_placeholder"
+        android:inputType="textCapSentences"
+        android:maxLines="5"/>
+
+    <Button
+        android:id="@+id/ANC_save_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ANC_save_btn"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/ANC_desc_field"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/ANC_desc_field" />
+
+    <Button
+        android:id="@+id/ANC_cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ANC_cancel_btn"
+        android:layout_alignBaseline="@+id/ANC_save_btn"
+        android:layout_alignBottom="@+id/ANC_save_btn"
+        android:layout_alignStart="@+id/ANC_desc_field" />
+
+    <Button
+        android:id="@+id/contactsBtn"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ANC_name_field"
+        android:layout_toEndOf="@+id/ANC_name_field"
+        android:drawableStart="@drawable/ic_pick_contact" />
+
+</RelativeLayout>

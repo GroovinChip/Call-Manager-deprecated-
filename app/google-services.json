@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "388480994999",
+    "firebase_url": "https://call-manager-2efa1.firebaseio.com",
+    "project_id": "call-manager-2efa1",
+    "storage_bucket": "call-manager-2efa1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388480994999:android:e4f3c723533bc20a",
+        "android_client_info": {
+          "package_name": "groovinchip.com.callmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388480994999-ekqb6f4ak4esko70033qpr4j3apiodso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN6ecdnPQ67PU3Z8YL062noQGjAGr0Iyg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

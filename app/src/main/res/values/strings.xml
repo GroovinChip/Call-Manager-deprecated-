@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Call Manager</string>
+    <string name="reminder_activity_title">Set Reminder</string>
+    <!--Menu Strings-->
+    <string name="menu_add_new_call">Add New Call</string>
+    <string name="menu_theme_choice">Use Dark Theme</string>
+    <string name="menu_clear_all">Clear All Calls</string>
+    <string name="menu_notif_hist">Notification History</string>
+    <string name="menu_about">About</string>
+    <string name="menu_settings">Settings</string>
+
+    <!--Add New Call strings-->
+    <string name="ANC_name_placeholder">Name (required)</string>
+    <string name="ANC_number_placeholder">Number (required)</string>
+    <string name="ANC_description_placeholder">Description</string>
+    <string name="ANC_save_btn">Save</string>
+    <string name="ANC_cancel_btn">Cancel</string>
+    <string name="ANC_menu_save">Save</string>
+    <string name="ANC_menu_cancel">Cancel</string>
+
+    <!--Edit Call strings-->
+    <string name="EC_name_placeholder">Name (Required)</string>
+    <string name="EC_number_placeholder">Number (Required)</string>
+    <string name="EC_description_placeholder">Description</string>
+    <string name="EC_save_btn">Save</string>
+    <string name="EC_cancel_btn">Cancel</string>
+    <string name="EC_menu_save">Save</string>
+    <string name="EC_menu_cancel">Cancel</string>
+
+    <!--Call Actions Dialog strings-->
+    <string name="call_actions_title">Call Actions</string>
+    <string name="call_actions_call">Call</string>
+    <string name="call_actions_viewTimeStamp">View Timestamp For This Entry</string>
+    <string name="call_actions_send_sms">Send SMS</string>
+    <string name="call_actions_edit">Edit Call</string>
+    <string name="CA_optional_chat_default">Send SMS (Default)</string>
+    <string name="CA_optional_chat_whatsapp">Send WhatsApp Message</string>
+    <string name="CA_optional_chat_telegram">Send Telegram Message</string>
+
+    <!--Clear All Calls Dialog Strings-->
+    <string name="clearAll_actions_title">Are you sure you want to delete all calls?</string>
+    <string name="clearAll_yes">Yes</string>
+    <string name="clearAll_no">No</string>
+
+    <!--App Shortcuts Strings-->
+    <string name="app_shortcut_1">Add New Call</string>
+
+    <!--Call Reminder Strings-->
+    <string name="CR_save">Save</string>
+    <string name="CR_cancel">Cancel</string>
+    <string name="CR_date_placeholder">Date (Required)</string>
+    <string name="CR_time_placeholder">Time (Required)</string>
+
+    <!--Notification History Strings-->
+    <string name="title_activity_notification_history">Notification History</string>
+    <string name="notif_hist_upcoming">Upcoming</string>
+    <string name="notif_hist_past">Past</string>
+    <string name="clear_notif_hist">Clear Notification History</string>
+    <string name="clearAllHistory_actions_title">Are you sure you want to delete all notification history?</string>
+
+    <!--Settings Strings-->
+    <string name="settings_section_title1">Custom Chat</string>
+    <string name="settings_section_title2">App Theme</string>
+    <string name="settings_section_title3">Behavior</string>
+    <string name="settings_prompt_chat">Choose a custom chat action</string>
+    <string name="settings_prompt_theme">Choose an app theme</string>
+    <string name="settings_prompt_fab">Use a FAB on the Main Screen</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+
+    <!-- OTHER -->
+    <string name="developed_by">Developed by GroovinChip</string>
+    <string name="version_number">Version 2.2.1</string>
+    <string name="changelog_button">View Changelog</string>
+    <string name="changelog_dialog_title">Changelog: 2.2.1</string>
+    <string name="change1">- NEW Settings Page! Choose a custom chat option, toggle the theme, and toggle a FAB for the main screen</string>
+    <string name="change2">- NEW: Changelog button in the About page</string>
+    <string name="change3">- Updated Android Support Libraries</string>
+
+</resources>

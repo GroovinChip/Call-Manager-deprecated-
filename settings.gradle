@@ -1,0 +1,2 @@
+include ':callmanager'
+project(':callmanager').projectDir = new File('app')

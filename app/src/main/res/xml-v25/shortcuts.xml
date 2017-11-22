@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="Add New Call"
+        android:enabled="true"
+        android:icon="@mipmap/add_new_call_shortcut"
+        android:shortcutShortLabel="@string/app_shortcut_1"
+        android:shortcutLongLabel="@string/app_shortcut_1" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="groovinchip.com.callmanager"
+            android:targetClass="groovinchip.com.callmanager.AddNewCall"
+        />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>
