@@ -75,7 +75,7 @@
     <string name="changelog_button">View Changelog</string>
     <string name="changelog_dialog_title">Changelog: 2.3</string>
     <string name="change1">- NEW Setting to enable or disable the quick-theme toggle on the main screen</string>
-    <string name="change2"></string>
-    <string name="change3"></string>
+    <string name="change2">- Better split-screen support</string>
+    <string name="change3">- Better activity layout composition</string>
 
 </resources>

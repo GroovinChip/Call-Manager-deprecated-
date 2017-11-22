@@ -29,10 +29,12 @@
         <activity
             android:name="groovinchip.com.callmanager.AddNewCall"
             android:label="@string/menu_add_new_call"
+            android:parentActivityName="groovinchip.com.callmanager.MainActivity"
             android:resizeableActivity="true" />
         <activity
             android:name="groovinchip.com.callmanager.EditCall"
             android:label="@string/call_actions_edit"
+            android:parentActivityName="groovinchip.com.callmanager.MainActivity"
             android:resizeableActivity="true" />
         <activity
             android:name="groovinchip.com.callmanager.Settings"
@@ -57,6 +59,7 @@
         <activity
             android:name="groovinchip.com.callmanager.NotificationHistory"
             android:label="@string/title_activity_notification_history"
+            android:parentActivityName="groovinchip.com.callmanager.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
