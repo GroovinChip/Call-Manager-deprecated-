@@ -20,9 +20,11 @@ public class Settings extends AppCompatActivity implements OnItemSelectedListene
     private boolean isChecked = false;
     boolean isDark;
     boolean isFabChecked;
+    boolean isMSSwitchChecked;
     Spinner chatPicker;
     Switch themeSwitch;
     Switch fabSwitch;
+    Switch msThemeSwitch;
     String infoMsg;
     int chatSelection; // for saving
     int currentChat; // for displaying
@@ -36,22 +38,36 @@ public class Settings extends AppCompatActivity implements OnItemSelectedListene
         setChatSpinner();
         themeSwitch = (Switch)findViewById(R.id.themeSwitch);
         fabSwitch = (Switch)findViewById(R.id.fabSwitch);
+        msThemeSwitch = findViewById(R.id.msThemeSwitch);
+
         isFabChecked = appPrefs.getBoolean("fabChecked", false);
-        if(isChecked == true){
+        isMSSwitchChecked = appPrefs.getBoolean("msSwitchTheme", false);
+
+        // Set theme switch
+        if (isChecked == true) {
             themeSwitch.setText("Dark");
             themeSwitch.setChecked(isChecked);
-        }
-        else{
+        } else {
             themeSwitch.setText("Light");
             themeSwitch.setChecked(isChecked);
         }
-        if(isFabChecked == true){
+
+        // Set FAB switch
+        if (isFabChecked == true) {
             fabSwitch.setText("Yes");
             fabSwitch.setChecked(isFabChecked);
-        }
-        else{
+        } else {
             fabSwitch.setText("No");
             fabSwitch.setChecked(isFabChecked);
+        }
+
+        // Set mainscreen theme checkbox switch
+        if (isMSSwitchChecked == false) {
+            msThemeSwitch.setText("Yes");
+            msThemeSwitch.setChecked(true);
+        } else {
+            msThemeSwitch.setText("No");
+            msThemeSwitch.setChecked(false);
         }
     }
 
@@ -60,11 +76,10 @@ public class Settings extends AppCompatActivity implements OnItemSelectedListene
     private void setAppTheme() {
         openAppPrefs();
         Boolean isDark = appPrefs.getBoolean("themeVal", false);
-        if(isDark==true){
+        if (isDark == true) {
             setTheme(R.style.AppThemeDark);
             isChecked = true;
-        }
-        else{
+        } else {
             setTheme(R.style.AppTheme);
             isChecked = false;
         }
@@ -104,28 +119,41 @@ public class Settings extends AppCompatActivity implements OnItemSelectedListene
         chatPicker.setOnItemSelectedListener(this);
     }
 
-    public void onThemeSwitchClick(View v){
-        if(themeSwitch.isChecked()){
+    public void onThemeSwitchClick(View v) {
+        if (themeSwitch.isChecked()) {
             themeSwitch.setText("Dark");
             isDark = true;
             saveThemeAndRefresh(isDark);
-        }
-        else{
+        } else {
             themeSwitch.setText("Light");
             isDark = false;
             saveThemeAndRefresh(isDark);
         }
     }
 
-    public void onFabSwitchClick(View v){
+    public void onMSThemeSwitchClick(View v){
         SharedPreferences.Editor editor = appPrefs.edit();
-        if(fabSwitch.isChecked()){
+        if (msThemeSwitch.isChecked()) {
+            msThemeSwitch.setText("Yes");
+            isMSSwitchChecked = false;
+            editor.putBoolean("msSwitchTheme", isMSSwitchChecked);
+            editor.commit();
+        } else {
+            msThemeSwitch.setText("No");
+            isMSSwitchChecked = true;
+            editor.putBoolean("msSwitchTheme", isMSSwitchChecked);
+            editor.commit();
+        }
+    }
+
+    public void onFabSwitchClick(View v) {
+        SharedPreferences.Editor editor = appPrefs.edit();
+        if (fabSwitch.isChecked()) {
             fabSwitch.setText("Yes");
             isFabChecked = true;
             editor.putBoolean("fabChecked", isFabChecked);
             editor.commit();
-        }
-        else{
+        } else {
             fabSwitch.setText("No");
             isFabChecked = false;
             editor.putBoolean("fabChecked", isFabChecked);
@@ -134,8 +162,8 @@ public class Settings extends AppCompatActivity implements OnItemSelectedListene
     }
 
     // Do something when a spinner item is chosen
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
-        switch (pos){
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        switch (pos) {
             case 0:
                 infoMsg = "SMS option chosen";
                 break;
@@ -176,11 +204,4 @@ public class Settings extends AppCompatActivity implements OnItemSelectedListene
     public void onNothingSelected(AdapterView<?> parent){
         // Do nothing
     }
-
-    /*@Override
-    protected void onResume() {
-        super.onResume();
-
-        chatPicker.setOnItemSelectedListener(this);
-    }*/
 }
