@@ -374,14 +374,22 @@ public class MainActivity extends AppCompatActivity {
 
         if (isMSThemeEnabled) {
             inflater.inflate(R.menu.menu2, menu);
+            if(isChecked == true){
+                menu.getItem(0).setIcon(R.drawable.ic_add_dark);
+            } else {
+                menu.getItem(0).setIcon(R.drawable.ic_add_black_48dp);
+            }
         } else {
             inflater.inflate(R.menu.menu, menu);
             MenuItem themeCheckBox = menu.findItem(R.id.menu_theme_btn);
+            menu.getItem(0).setIcon(R.drawable.ic_add_dark);
             // Change the default state of the checkbox depending on
             // the boolean value retried from shared preferences earlier
             themeCheckBox.setChecked(isChecked);
             if(isChecked == true){
-                menu.getItem(0).setIcon(R.drawable.ic_add_light);
+                menu.getItem(0).setIcon(R.drawable.ic_add_dark);
+            } else {
+                menu.getItem(0).setIcon(R.drawable.ic_add_black_48dp);
             }
         }
 
@@ -506,5 +514,26 @@ public class MainActivity extends AppCompatActivity {
             Call call = gson.fromJson(json, Call.class);
             callList.add(call);
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.exit_dialog_title);
+        builder.setMessage(R.string.exit_app_prompt);
+        builder.setPositiveButton(R.string.clearAll_yes, new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finishAndRemoveTask();
+            }
+        }).setNegativeButton(R.string.clearAll_no, new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
