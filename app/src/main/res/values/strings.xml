@@ -71,12 +71,13 @@
 
     <!-- OTHER -->
     <string name="developed_by">Developed by GroovinChip</string>
-    <string name="version_number">Version 2.3 beta 2</string>
+    <string name="version_number">Version 2.3</string>
     <string name="changelog_button">View Changelog</string>
-    <string name="changelog_dialog_title">Changelog: 2.3 beta 2</string>
-    <string name="change1">- Fixed action bar Add New Call button color issue on theme change</string>
-    <string name="change2">- Fixed navigation stack</string>
-    <string name="change3">- Added exit dialog from main screen</string>
+    <string name="changelog_dialog_title">Changelog: 2.3</string>
+    <string name="change1">- NEW Setting to enable or disable the quick-theme toggle on the main screen</string>
+    <string name="change2">- Better split-screen support</string>
+    <string name="change3">- Better activity layout composition</string>
+    <string name="change4">- Added exit dialog from main screen</string>
     <string name="exit_dialog_title">Exit Call Manager</string>
     <string name="exit_app_prompt">Do you really want to exit Call Manager?</string>
 
