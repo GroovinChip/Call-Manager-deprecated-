@@ -1,72 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true"
-    tools:context="groovinchip.com.callmanager.ReminderActivity">
+    android:layout_width="match_parent">
 
-    <EditText
-        android:id="@+id/dateField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="76dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/CR_date_placeholder"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        tools:context="groovinchip.com.callmanager.ReminderActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/datePicker"
-        android:layout_above="@+id/timeField"
-        android:layout_toEndOf="@+id/dateField"
-        android:layout_marginStart="10dp"
-        android:drawableStart="@drawable/ic_date_pick"
-        style="@style/Widget.AppCompat.Button.Small" />
+        <EditText
+            android:id="@+id/dateField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="125dp"
+            android:ems="10"
+            android:hint="@string/CR_date_placeholder"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/timeField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/dateField"
-        android:layout_below="@+id/dateField"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="time"
-        android:hint="@string/CR_time_placeholder" />
+        <Button
+            android:id="@+id/datePicker"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/timeField"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="117dp"
+            android:layout_toEndOf="@+id/dateField"
+            android:drawableStart="@drawable/ic_date_pick"
+            app:layout_constraintStart_toEndOf="@+id/dateField"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timePicker"
-        android:layout_alignBottom="@+id/timeField"
-        android:layout_alignStart="@+id/datePicker"
-        android:drawableStart="@drawable/ic_time_pick"
-        style="@style/Widget.AppCompat.Button.Small" />
+        <EditText
+            android:id="@+id/timeField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/dateField"
+            android:layout_below="@+id/dateField"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/CR_time_placeholder"
+            android:inputType="time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateField" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cancelBtn"
-        android:text="@string/CR_cancel"
-        android:layout_below="@+id/timeField"
-        android:layout_alignStart="@+id/timeField"
-        android:layout_marginTop="20dp" />
+        <Button
+            android:id="@+id/timePicker"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/timeField"
+            android:layout_alignStart="@+id/datePicker"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_time_pick"
+            app:layout_constraintStart_toEndOf="@+id/timeField"
+            app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/CR_save"
-        android:layout_alignBaseline="@+id/cancelBtn"
-        android:layout_alignBottom="@+id/cancelBtn"
-        android:layout_alignEnd="@+id/timePicker" />
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/timeField"
+            android:layout_below="@+id/timeField"
+            android:layout_marginEnd="188dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/CR_cancel"
+            app:layout_constraintEnd_toEndOf="@+id/timePicker"
+            app:layout_constraintTop_toBottomOf="@+id/timeField" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/cancelBtn"
+            android:layout_alignBottom="@+id/cancelBtn"
+            android:layout_alignEnd="@+id/timePicker"
+            android:layout_marginTop="16dp"
+            android:text="@string/CR_save"
+            app:layout_constraintEnd_toEndOf="@+id/timePicker"
+            app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
+

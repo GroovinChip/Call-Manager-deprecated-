@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isChecked = false;
     int customChatID;
     Boolean isFabChecked;
+    Boolean isMSThemeEnabled;
     FloatingActionButton fab;
 
     @Override
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         sharedpreferences = this.getSharedPreferences(callListPrefs, Context.MODE_PRIVATE);
         appPrefs = this.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
         isFabChecked = appPrefs.getBoolean("fabChecked", false);
+        isMSThemeEnabled = appPrefs.getBoolean("msSwitchTheme", false);
 
         // Set up the recycler view which displays the calls to the user
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        // Set FAB
         if(isFabChecked == true){
             fab = (FloatingActionButton)findViewById(R.id.fab);
             fab.show();
@@ -368,15 +371,30 @@ public class MainActivity extends AppCompatActivity {
     // Set up the overflow menu
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        MenuItem themeCheckBox = menu.findItem(R.id.menu_theme_btn);
-        // Change the default state of the checkbox depending on
-        // the boolean value retried from shared preferences earlier
-        themeCheckBox.setChecked(isChecked);
-        if(isChecked == true){
-            menu.getItem(0).setIcon(R.drawable.ic_add_light);
+
+        if (isMSThemeEnabled) {
+            inflater.inflate(R.menu.menu2, menu);
+            if(isChecked == true){
+                menu.getItem(0).setIcon(R.drawable.ic_add_dark);
+            } else {
+                menu.getItem(0).setIcon(R.drawable.ic_add_black_48dp);
+            }
+        } else {
+            inflater.inflate(R.menu.menu, menu);
+            MenuItem themeCheckBox = menu.findItem(R.id.menu_theme_btn);
+            menu.getItem(0).setIcon(R.drawable.ic_add_dark);
+            // Change the default state of the checkbox depending on
+            // the boolean value retried from shared preferences earlier
+            themeCheckBox.setChecked(isChecked);
+            if(isChecked == true){
+                menu.getItem(0).setIcon(R.drawable.ic_add_dark);
+            } else {
+                menu.getItem(0).setIcon(R.drawable.ic_add_black_48dp);
+            }
         }
 
+        // Enable or Disable action bar 'Add New Call'
+        // based on FAB setting
         if(isFabChecked){
             menu.getItem(0).setEnabled(false);
             menu.getItem(0).setVisible(false);
@@ -496,5 +514,26 @@ public class MainActivity extends AppCompatActivity {
             Call call = gson.fromJson(json, Call.class);
             callList.add(call);
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.exit_dialog_title);
+        builder.setMessage(R.string.exit_app_prompt);
+        builder.setPositiveButton(R.string.clearAll_yes, new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finishAndRemoveTask();
+            }
+        }).setNegativeButton(R.string.clearAll_no, new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

@@ -1,76 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true"
-    tools:context="groovinchip.com.callmanager.AddNewCall">
+    android:layout_width="match_parent">
 
-    <EditText
-        android:id="@+id/EC_name_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:ems="10"
-        android:hint="@string/EC_name_placeholder"
-        android:inputType="textCapSentences"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:lines="1"
-        android:maxLength="75"/>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        tools:context="groovinchip.com.callmanager.AddNewCall">
 
-    <EditText
-        android:id="@+id/EC_num_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/EC_name_field"
-        android:layout_below="@+id/EC_name_field"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/EC_number_placeholder"
-        android:inputType="phone"
-        android:lines="1"
-        android:maxLength="14"/>
+        <EditText
+            android:id="@+id/EC_name_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="96dp"
+            android:ems="10"
+            android:hint="@string/EC_name_placeholder"
+            android:inputType="textCapSentences"
+            android:lines="1"
+            android:maxLength="75"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/EC_desc_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/EC_num_field"
-        android:layout_below="@+id/EC_num_field"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/EC_description_placeholder"
-        android:inputType="textCapSentences"
-        android:maxLines="5"/>
+        <EditText
+            android:id="@+id/EC_num_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/EC_name_field"
+            android:layout_below="@+id/EC_name_field"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/EC_number_placeholder"
+            android:inputType="phone"
+            android:lines="1"
+            android:maxLength="17"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EC_name_field" />
 
-    <Button
-        android:id="@+id/EC_save_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/EC_save_btn"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/EC_desc_field"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/EC_desc_field" />
+        <EditText
+            android:id="@+id/EC_desc_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/EC_num_field"
+            android:layout_below="@+id/EC_num_field"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/EC_description_placeholder"
+            android:inputType="textCapSentences"
+            android:maxLines="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EC_num_field" />
 
-    <Button
-        android:id="@+id/EC_cancel_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/EC_cancel_btn"
-        android:layout_alignBaseline="@+id/EC_save_btn"
-        android:layout_alignBottom="@+id/EC_save_btn"
-        android:layout_alignStart="@+id/EC_desc_field" />
+        <Button
+            android:id="@+id/EC_save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/EC_desc_field"
+            android:layout_below="@+id/EC_desc_field"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="60dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/EC_save_btn"
+            app:layout_constraintEnd_toEndOf="@+id/contactsBtnEdit"
+            app:layout_constraintTop_toBottomOf="@+id/EC_desc_field" />
 
-    <Button
-        android:id="@+id/contactsBtnEdit"
-        style="@style/Widget.AppCompat.Button.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/EC_name_field"
-        android:layout_toEndOf="@+id/EC_name_field"
-        android:drawableStart="@drawable/ic_pick_contact" />
-</RelativeLayout>
+        <Button
+            android:id="@+id/EC_cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/EC_save_btn"
+            android:layout_alignBottom="@+id/EC_save_btn"
+            android:layout_alignStart="@+id/EC_desc_field"
+            android:layout_marginEnd="35dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/EC_cancel_btn"
+            app:layout_constraintEnd_toStartOf="@+id/EC_save_btn"
+            app:layout_constraintTop_toBottomOf="@+id/EC_desc_field" />
+
+        <Button
+            android:id="@+id/contactsBtnEdit"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/EC_name_field"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="88dp"
+            android:layout_toEndOf="@+id/EC_name_field"
+            android:drawableStart="@drawable/ic_pick_contact"
+            app:layout_constraintStart_toEndOf="@+id/EC_name_field"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

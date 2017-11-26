@@ -65,16 +65,19 @@
     <string name="settings_prompt_chat">Choose a custom chat action</string>
     <string name="settings_prompt_theme">Choose an app theme</string>
     <string name="settings_prompt_fab">Use a FAB on the Main Screen</string>
+    <string name="settings_prompt_mainscreen_theme_choice">Add a Quick Theme Toggle to the Main Screen</string>
     <string name="settings_theme_light">Light</string>
     <string name="settings_theme_dark">Dark</string>
 
     <!-- OTHER -->
     <string name="developed_by">Developed by GroovinChip</string>
-    <string name="version_number">Version 2.2.1</string>
+    <string name="version_number">Version 2.3 beta 2</string>
     <string name="changelog_button">View Changelog</string>
-    <string name="changelog_dialog_title">Changelog: 2.2.1</string>
-    <string name="change1">- NEW Settings Page! Choose a custom chat option, toggle the theme, and toggle a FAB for the main screen</string>
-    <string name="change2">- NEW: Changelog button in the About page</string>
-    <string name="change3">- Updated Android Support Libraries</string>
+    <string name="changelog_dialog_title">Changelog: 2.3 beta 2</string>
+    <string name="change1">- Fixed action bar Add New Call button color issue on theme change</string>
+    <string name="change2">- Fixed navigation stack</string>
+    <string name="change3">- Added exit dialog from main screen</string>
+    <string name="exit_dialog_title">Exit Call Manager</string>
+    <string name="exit_app_prompt">Do you really want to exit Call Manager?</string>
 
 </resources>
