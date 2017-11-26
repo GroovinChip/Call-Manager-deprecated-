@@ -27,7 +27,7 @@
             android:visibility="invisible"
             android:clickable="true"
             android:focusable="true"
-            android:elevation="6dp"
+            android:elevation="8dp"
             android:src="@drawable/ic_add_light" />
     </android.support.design.widget.CoordinatorLayout>
 
