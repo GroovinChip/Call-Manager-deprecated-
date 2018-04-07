@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -18,6 +18,7 @@ public class About extends AppCompatActivity {
     SharedPreferences appPrefs;
     public final String APP_PREFS = "appPrefs";
     private boolean isChecked = false;
+    TextView appVersion;
     Button changelogBtn;
     TextView xdaDevB;
     TextView xdaProfile;
@@ -30,6 +31,9 @@ public class About extends AppCompatActivity {
         appPrefs = getSharedPreferences("appPrefs", Context.MODE_PRIVATE);
         setAppTheme();
         setContentView(R.layout.activity_about);
+
+        appVersion = findViewById(R.id.versionName);
+        appVersion.setText(BuildConfig.VERSION_NAME);
 
         changelogBtn = findViewById(R.id.changelogBtn);
         changelogBtn.setOnClickListener(new View.OnClickListener() {

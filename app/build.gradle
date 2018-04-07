@@ -4,8 +4,8 @@ apply plugin: 'io.fabric'
 android {
     signingConfigs {
         config {
-            keyAlias 'key0'
-            keyPassword 'Studiogroovin2'
+            keyAlias 'key'
+            keyPassword 'StudioGroovin2'
             storeFile file('C:/Users/groov/Call Manager/keystores/call_list_key.jks')
             storePassword 'Groovinreuvin2'
         }
@@ -22,6 +22,12 @@ android {
     }
     buildTypes {
         config {
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+        release {
             signingConfig signingConfigs.config
         }
     }
