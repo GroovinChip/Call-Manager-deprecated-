@@ -38,3 +38,6 @@ Git branch: master
 2.4 Beta 3 (29)
 - Removed in-app changelog button
 - Added GitHub link to 'About'
+
+2.4 Beta 4 (30)
+- Fixed version name in 'About'

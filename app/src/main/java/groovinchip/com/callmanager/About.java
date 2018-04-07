@@ -30,7 +30,7 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         appVersion = findViewById(R.id.versionName);
-        appVersion.setText(BuildConfig.VERSION_NAME);
+        appVersion.setText("Verision " + BuildConfig.VERSION_NAME);
 
         /*changelogBtn = findViewById(R.id.changelogBtn);
         changelogBtn.setOnClickListener(new View.OnClickListener() {
