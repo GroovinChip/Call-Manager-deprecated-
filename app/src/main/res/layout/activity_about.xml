@@ -33,17 +33,29 @@
             android:layout_below="@+id/developedBy"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/version_number"
+            android:text=""
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/developedBy" />
 
-        <Button
+        <!--<Button
             android:id="@+id/changelogBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
             android:text="@string/changelog_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/versionName" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/githubLink"
+            android:layout_alignStart="@+id/versionName"
+            android:layout_below="@+id/versionName"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text=""
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/versionName" />
 
@@ -57,7 +69,7 @@
             android:layout_marginTop="16dp"
             android:text=""
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/changelogBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/githubLink" />
 
         <TextView
             android:id="@+id/XDA_Profile"

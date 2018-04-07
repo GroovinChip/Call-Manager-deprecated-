@@ -1,16 +1,12 @@
 package groovinchip.com.callmanager;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class About extends AppCompatActivity {
@@ -19,7 +15,8 @@ public class About extends AppCompatActivity {
     public final String APP_PREFS = "appPrefs";
     private boolean isChecked = false;
     TextView appVersion;
-    Button changelogBtn;
+    /*Button changelogBtn;*/
+    TextView github;
     TextView xdaDevB;
     TextView xdaProfile;
     TextView telegramChat;
@@ -35,7 +32,7 @@ public class About extends AppCompatActivity {
         appVersion = findViewById(R.id.versionName);
         appVersion.setText(BuildConfig.VERSION_NAME);
 
-        changelogBtn = findViewById(R.id.changelogBtn);
+        /*changelogBtn = findViewById(R.id.changelogBtn);
         changelogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,9 +48,15 @@ public class About extends AppCompatActivity {
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
-        });
+        });*/
 
         if (Build.VERSION.SDK_INT > 24) {
+            github = findViewById(R.id.githubLink);
+            github.setClickable(true);
+            github.setMovementMethod(LinkMovementMethod.getInstance());
+            String repoURL = "<a href='https://github.com/GroovinChip/Call-Manager'> GitHub Repo </a>";
+            github.setText(Html.fromHtml(repoURL, 0));
+
             xdaDevB = findViewById(R.id.XDA_DevB_link);
             xdaDevB.setClickable(true);
             xdaDevB.setMovementMethod(LinkMovementMethod.getInstance());
@@ -71,6 +74,12 @@ public class About extends AppCompatActivity {
             telegramChat.setMovementMethod(LinkMovementMethod.getInstance());
             telegramChat.setText((Html.fromHtml(telegramChatURL, 0)));
         } else if (Build.VERSION.SDK_INT <= 22) {
+            github = findViewById(R.id.githubLink);
+            github.setClickable(true);
+            github.setMovementMethod(LinkMovementMethod.getInstance());
+            String repoURL = "<a href='https://github.com/GroovinChip/Call-Manager'> GitHub Repo </a>";
+            github.setText(Html.fromHtml(repoURL));
+
             xdaDevB = findViewById(R.id.XDA_DevB_link);
             xdaDevB.setClickable(true);
             xdaDevB.setMovementMethod(LinkMovementMethod.getInstance());

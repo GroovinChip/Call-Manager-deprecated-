@@ -28,7 +28,13 @@ Git branch: master
 - Better activity layout composition
 - Added exit dialog from main screen
 
-2.4 (27)
+2.4 Beta 1(27)
 - Started redesigning screens, starting with Add New Call
+
+2.4 Beta 2 (28)
 - Added changelog file to Git
 - Updated 'About' to grab the app's version code programmatically rather than using a manual string
+
+2.4 Beta 3 (29)
+- Removed in-app changelog button
+- Added GitHub link to 'About'
