@@ -2,9 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="@string/ANC_menu_cancel"
-        android:icon="@drawable/ic_delete_black_48dp"
-        android:id="@+id/anc_menu_cancel"
-        app:showAsAction="never">
+    <item android:title="@string/ANC_menu_save"
+        android:id="@+id/anc_menu_save"
+        app:showAsAction="always">
     </item>
 </menu>

@@ -6,43 +6,54 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
+
     <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true"
         tools:context="groovinchip.com.callmanager.AddNewCall">
 
+        <View
+            android:id="@+id/photoView"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_alignParentTop="true"
+            android:background="#DDDDDD"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="2dp" />
+
         <EditText
             android:id="@+id/ANC_name_field"
-            android:layout_width="wrap_content"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="@string/ANC_name_placeholder"
             android:inputType="textCapSentences"
             android:lines="1"
             android:maxLength="75"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/nameImage"
+            app:layout_constraintTop_toBottomOf="@+id/photoView" />
 
         <EditText
             android:id="@+id/ANC_num_field"
-            android:layout_width="wrap_content"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/ANC_name_field"
             android:layout_below="@+id/ANC_name_field"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="108dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:ems="10"
@@ -51,16 +62,17 @@
             android:lines="1"
             android:maxLength="17"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/phoneImage"
             app:layout_constraintTop_toBottomOf="@+id/ANC_name_field" />
 
         <EditText
             android:id="@+id/ANC_desc_field"
-            android:layout_width="wrap_content"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/ANC_num_field"
             android:layout_below="@+id/ANC_num_field"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="108dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:ems="10"
@@ -68,10 +80,11 @@
             android:inputType="textCapSentences"
             android:maxLines="5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/descriptionImage"
             app:layout_constraintTop_toBottomOf="@+id/ANC_num_field" />
 
-        <Button
+        <!--<Button
             android:id="@+id/ANC_save_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,7 +108,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/ANC_cancel_btn"
             app:layout_constraintEnd_toStartOf="@+id/ANC_save_btn"
-            app:layout_constraintTop_toBottomOf="@+id/ANC_desc_field" />
+            app:layout_constraintTop_toBottomOf="@+id/ANC_desc_field" />-->
 
         <Button
             android:id="@+id/contactsBtn"
@@ -103,12 +116,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/ANC_name_field"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:layout_toEndOf="@+id/ANC_name_field"
             android:drawableStart="@drawable/ic_pick_contact"
             app:layout_constraintStart_toEndOf="@+id/ANC_name_field"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/photoView" />
+
+        <ImageView
+            android:id="@+id/nameImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photoView"
+            app:srcCompat="@drawable/ic_name" />
+
+        <ImageView
+            android:id="@+id/phoneImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameImage"
+            app:srcCompat="@drawable/ic_phone" />
+
+        <ImageView
+            android:id="@+id/descriptionImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneImage"
+            app:srcCompat="@drawable/ic_comment" />
+
+        <ImageView
+            android:id="@+id/contactView"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/contact_photo_border"
+            app:layout_constraintEnd_toEndOf="@+id/photoView"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/photoView"
+            app:layout_constraintTop_toTopOf="@+id/photoView"
+            app:srcCompat="@drawable/ic_name" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
