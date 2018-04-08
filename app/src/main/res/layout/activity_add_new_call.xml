@@ -25,8 +25,9 @@
             android:layout_alignParentTop="true"
             android:background="#DDDDDD"
             android:visibility="visible"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="2dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/ANC_name_field"
@@ -160,6 +161,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="50dp"
+            android:adjustViewBounds="true"
             android:background="@drawable/contact_photo_border"
             app:layout_constraintEnd_toEndOf="@+id/photoView"
             app:layout_constraintHorizontal_bias="0.498"

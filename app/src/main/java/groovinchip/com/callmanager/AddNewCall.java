@@ -2,11 +2,14 @@ package groovinchip.com.callmanager;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -27,6 +30,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.InputStream;
 import java.util.Date;
 
 public class AddNewCall extends AppCompatActivity {
@@ -59,9 +63,9 @@ public class AddNewCall extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_cancel);
 
         // Declare components
-        nameField = (EditText)findViewById(R.id.ANC_name_field);
-        numField = (EditText) findViewById(R.id.ANC_num_field);
-        descField = (EditText)findViewById(R.id.ANC_desc_field);
+        nameField = findViewById(R.id.ANC_name_field);
+        numField = findViewById(R.id.ANC_num_field);
+        descField = findViewById(R.id.ANC_desc_field);
         descField.setSingleLine(false);
         /*saveNewCallBtn = (Button)findViewById(R.id.ANC_save_btn);
         cancelNewCallBtn = (Button)findViewById(R.id.ANC_cancel_btn);*/
@@ -69,7 +73,7 @@ public class AddNewCall extends AppCompatActivity {
         phoneImage = findViewById(R.id.phoneImage);
         descriptionImage = findViewById(R.id.descriptionImage);
         contactPhoto = findViewById(R.id.contactView);
-        contactPicker = (Button)findViewById(R.id.contactsBtn);
+        contactPicker = findViewById(R.id.contactsBtn);
         sharedpreferences = getSharedPreferences(callListPrefs, Context.MODE_PRIVATE);
 
         // Set correct icon colors for dark theme
@@ -156,7 +160,6 @@ public class AddNewCall extends AppCompatActivity {
 
     // Retrieve the contact data and set name and number to the appropriate fields
     private void contactPicked(Intent data){
-        //askForContactPermission(Manifest.permission.READ_CONTACTS, READ_CONTACTS);
 
         ContentResolver cr = getContentResolver();
         Uri uri = data.getData();
@@ -168,23 +171,20 @@ public class AddNewCall extends AppCompatActivity {
         nameField.setText(name);
         String number = cur.getString(cur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-        /*InputStream photo_stream = ContactsContract.Contacts.openContactPhotoInputStream(cr, uri, true);
-        BufferedInputStream buf = new BufferedInputStream(photo_stream);
-        Bitmap my_btmp = BitmapFactory.decodeStream(buf);
-        try {
-            buf.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        // Get the contact picture and convert to bitmap
+        Bitmap bitmap;
+        ContentResolver contentResolver = getApplicationContext().getContentResolver();
+        Uri photoUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, Long.parseLong(id));
+        InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, photoUri);
+        bitmap = BitmapFactory.decodeStream(input);
 
         numField.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         numField.setText(number);
         numField.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
 
-
-        /*Drawable photo = new BitmapDrawable(getResources(), my_btmp);
-        contactPhoto.setBackground(photo);*/
-        Log.i("AddNewCall", number);
+        contactPhoto.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        contactPhoto.setImageBitmap(bitmap);
+        Log.i("Logger", "Contact Added Successfully");
     }
 
     // Request Contacts permission

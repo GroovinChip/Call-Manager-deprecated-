@@ -41,3 +41,7 @@ Git branch: master
 
 2.4 Beta 4 (30)
 - Fixed version name in 'About'
+
+2.4 Commit 5 (30)
+- Add New Call: App does not crash on choosing a contact now, the code works to retrieve the contact photo. However, the photo does not show up
+- Small code changes
