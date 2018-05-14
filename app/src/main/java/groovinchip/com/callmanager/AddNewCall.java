@@ -46,8 +46,6 @@ public class AddNewCall extends AppCompatActivity {
     EditText nameField;
     EditText numField;
     EditText descField;
-    Button saveNewCallBtn;
-    Button cancelNewCallBtn;
     Button contactPicker;
     ImageView nameImage;
     ImageView phoneImage;
@@ -67,8 +65,6 @@ public class AddNewCall extends AppCompatActivity {
         numField = findViewById(R.id.ANC_num_field);
         descField = findViewById(R.id.ANC_desc_field);
         descField.setSingleLine(false);
-        /*saveNewCallBtn = (Button)findViewById(R.id.ANC_save_btn);
-        cancelNewCallBtn = (Button)findViewById(R.id.ANC_cancel_btn);*/
         nameImage = findViewById(R.id.nameImage);
         phoneImage = findViewById(R.id.phoneImage);
         descriptionImage = findViewById(R.id.descriptionImage);
@@ -97,30 +93,6 @@ public class AddNewCall extends AppCompatActivity {
                 pickContact();
             }
         });
-
-        // When 'save' button is clicked, create new 'Call'
-        // object and save object to Stack
-        /*saveNewCallBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean hasValidInput = createNewCall(nameField.getText().toString(),
-                        numField.getText().toString(), descField.getText().toString());
-                if(hasValidInput == true) {
-                    goToMain(view);
-                    finish();
-                }else{
-
-                }
-            }
-        });
-
-        // When 'cancel' button is clicked, go back to home screen
-        cancelNewCallBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
-                goToMain(view);
-                finish();
-            }
-        });*/
     }
 
     // Set the app theme based on boolean value from a
@@ -184,6 +156,7 @@ public class AddNewCall extends AppCompatActivity {
 
         contactPhoto.setScaleType(ImageView.ScaleType.FIT_CENTER);
         contactPhoto.setImageBitmap(bitmap);
+
         Log.i("Logger", "Contact Added Successfully");
     }
 
@@ -252,51 +225,16 @@ public class AddNewCall extends AppCompatActivity {
         }
     }
 
-    // Check if a specific character in a split phone number is numeric
-    public boolean isNumeric(String str){
-        switch (str.charAt(0)){
-            case '0':
-                return true;
-            case '1':
-                return true;
-            case '2':
-                return true;
-            case '3':
-                return true;
-            case '4':
-                return true;
-            case '5':
-                return true;
-            case '6':
-                return true;
-            case '7':
-                return true;
-            case '8':
-                return true;
-            case '9':
-                return true;
-            default:
-                return false;
-        }
-    }
-
     // Save new call to SharedPreferences
     public void addToSharedPrefs(Call call){
         SharedPreferences.Editor editor = sharedpreferences.edit();
         Gson gson = new Gson();
         String callObjGson = gson.toJson(call);
         editor.putString(timeCreated.toString(), callObjGson);
-        editor.commit();
+        editor.apply();
     }
 
-    // Go back to main screen when user click 'Cancel' button
-    public void goToMain(View view){
-        Intent goToMain = new Intent(view.getContext(), MainActivity.class);
-        startActivity(goToMain);
-        finish();
-    }
-
-    // Go back to main screen when user click 'Cancel' menu item
+    // Go back to main screen when user clicks 'Save' menu item
     public void goToMain(){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);

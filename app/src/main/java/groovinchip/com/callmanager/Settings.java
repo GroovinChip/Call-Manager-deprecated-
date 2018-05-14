@@ -40,7 +40,7 @@ public class Settings extends AppCompatActivity implements OnItemSelectedListene
         fabSwitch = (Switch)findViewById(R.id.fabSwitch);
         msThemeSwitch = findViewById(R.id.msThemeSwitch);
 
-        isFabChecked = appPrefs.getBoolean("fabChecked", false);
+        isFabChecked = appPrefs.getBoolean("fabChecked", true);
         isMSSwitchChecked = appPrefs.getBoolean("msSwitchTheme", false);
 
         // Set theme switch

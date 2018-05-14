@@ -162,6 +162,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="50dp"
             android:adjustViewBounds="true"
+            android:contentDescription="Contact Photo"
             android:background="@drawable/contact_photo_border"
             app:layout_constraintEnd_toEndOf="@+id/photoView"
             app:layout_constraintHorizontal_bias="0.498"

@@ -16,17 +16,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
-
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences appPrefs;
     public final String APP_PREFS = "appPrefs";
     public static final int PHONE = 0x2;
-    public static final int SMS = 0x3;
     private List<Call> callList;
     private RecyclerView recyclerView;
     private CallListAdapter listAdapter;
@@ -62,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
         // Declare the shared preferences to being used
         sharedpreferences = this.getSharedPreferences(callListPrefs, Context.MODE_PRIVATE);
         appPrefs = this.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
-        isFabChecked = appPrefs.getBoolean("fabChecked", false);
+        isFabChecked = appPrefs.getBoolean("fabChecked", true);
         isMSThemeEnabled = appPrefs.getBoolean("msSwitchTheme", false);
 
         // Set up the recycler view which displays the calls to the user
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true); // ?
         RecyclerView.LayoutManager lin = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(lin);
@@ -105,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set FAB
         if(isFabChecked == true){
-            fab = (FloatingActionButton)findViewById(R.id.fab);
+            fab = findViewById(R.id.fab);
             fab.show();
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -115,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         else{
-            fab = (FloatingActionButton)findViewById(R.id.fab);
+            fab = findViewById(R.id.fab);
             fab.hide();
         }
     }
@@ -257,19 +251,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Ask the user to grant SMS permission
-    public void getSMSPermission(String permission, Integer requestCode){
-        if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this, permission)){
-                ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
-            }
-        } else {
-
-        }
-    }
-
     // Send an sms to the specified call
     public void sendSMS(Call call){
         Intent sms = new Intent(Intent.ACTION_VIEW);
@@ -353,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove(key);
-                editor.commit();
+                editor.apply();
                 finish();
                 startActivity(getIntent());
             }
@@ -442,7 +423,7 @@ public class MainActivity extends AppCompatActivity {
         appPrefs = this.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = appPrefs.edit();
         editor.putBoolean("themeVal", isDark);
-        editor.commit();
+        editor.apply();
 
         refresh();
     }
@@ -457,7 +438,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.clear();
-                editor.commit();
+                editor.apply();
 
                 refresh();
             }
